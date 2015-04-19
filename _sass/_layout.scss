@@ -194,7 +194,7 @@
     border-bottom: $underlines;
     border-bottom-width:2px;
     @include media-query($on-palm) {
-        font-size: 3em;
+        font-size: 2em;
     }
 }
 
