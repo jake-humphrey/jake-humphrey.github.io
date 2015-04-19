@@ -1,15 +1,15 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
 
-body
 
 /**
  * Site header
  */
 .site-header {
-    min-height: 56px;
+    min-height: 65px;
     position: relative;
     background:white;
+    border-bottom: $underlines;
 }
 
 .header-wrapper {
@@ -24,9 +24,14 @@ body
     background:url("/assets/logo.svg") no-repeat center center;
     display: block;
     background-size: 150px 37px;
-    height: 52px;
+    height: 65px;
     width: 150px;
     @include span-columns(3);
+    @include media-query($on-palm) {
+        @include span-columns(12);
+        background-size: 290px 78px;
+        height:90px;
+    }
 }
 
 .site-nav {
@@ -36,56 +41,24 @@ body
     @include shift(3);
 
     .page-link {
-        color: $text-color;
+        color: $brand-color;
         line-height: $base-line-height;
         @include span-columns(3);
         @include omega();
         @include pad();
         text-align:center;
-        font-size:1.2em;
+        font-size:1.6em;
     }
-
+    @include media-query($on-laptop) {
+        @include shift(0);
+        @include span-columns(9);
+    }
     @include media-query($on-palm) {
-        position: absolute;
-        top: 9px;
-        right: 30px;
-        background-color: $background-color;
-        border: 1px solid $grey-color-light;
-        border-radius: 5px;
-        text-align: right;
-
-        .menu-icon {
-            display: block;
-            float: right;
-            width: 36px;
-            height: 26px;
-            line-height: 0;
-            padding-top: 10px;
-            text-align: center;
-
-            > svg {
-                width: 18px;
-                height: 15px;
-
-                path {
-                    fill: $grey-color-dark;
-                }
-            }
-        }
-
-        .trigger {
-            clear: both;
-            display: none;
-        }
-
-        &:hover .trigger {
-            display: block;
-            padding-bottom: 5px;
-        }
-
+        @include span-columns(8);
+        @include shift(2);
         .page-link {
-            display: block;
-            padding: 5px 10px;
+            @include span-columns(6);
+            @include omega();
         }
     }
 }
@@ -102,8 +75,11 @@ body
 }
 
 .footer-heading {
-    font-size: 18px;
+    font-size: 3em;
     margin-bottom: $spacing-unit / 2;
+    color:white;
+    border-bottom: $underlines;
+    border-color:white;
 }
 
 .contact-list,
@@ -112,32 +88,54 @@ body
     margin-left: 0;
 }
 
+.footer-subheading {
+    color:white;
+    font-size: 1.6em;
+}
 .footer-col-wrapper {
     font-size: 15px;
     color: $grey-color;
     margin-left: -$spacing-unit / 2;
     @extend %clearfix;
+    @include outer-container;
 }
 
 .footer-col {
-    float: left;
-    margin-bottom: $spacing-unit / 2;
-    padding-left: $spacing-unit / 2;
+    @include span-columns(6);
+    @include omega();
 }
 
-.footer-col-1 {
-    width: -webkit-calc(35% - (#{$spacing-unit} / 2));
-    width:         calc(35% - (#{$spacing-unit} / 2));
+.icons {
+    margin-left:1em;
+}
+.icon--facebook{
+    background:url("/assets/fbicon.svg") no-repeat center center;
+}
+.icon--email{
+    background:url("/assets/emailicon.svg") no-repeat center center;
 }
 
-.footer-col-2 {
-    width: -webkit-calc(20% - (#{$spacing-unit} / 2));
-    width:         calc(20% - (#{$spacing-unit} / 2));
+.footer-nav-links {
+    padding-top:3em;
+    @include outer-container;
+
+}
+.footer-nav-link {
+    @include span-columns(3);
+    
+    @include pad();
+    font-size: 2em;
+    text-align: center;
+    @include media-query($on-palm) {
+        @include span-columns(6);
+        @include omega();
+    }
 }
 
-.footer-col-3 {
-    width: -webkit-calc(45% - (#{$spacing-unit} / 2));
-    width:         calc(45% - (#{$spacing-unit} / 2));
+.design-by {
+    padding-top:2.5em;
+    text-align: center;
+    font-size: 1.3em;
 }
 
 @include media-query($on-laptop) {
@@ -167,11 +165,18 @@ body
  * Page content
  */
 
+.banner-container {
+    background:$brand-color;
+    @include media-query($on-laptop) {
+        display:none;
+    }
+}
+
 .home-banner {
     background:url("/assets/banner.svg") no-repeat center center;
     display: block;
     background-size: 100%;
-    height:600px;
+    height:700px;
     width: 90%;
     margin:auto;
 }
@@ -181,7 +186,72 @@ body
 }
 
 .page-heading {
-    font-size: 20px;
+    font-size: 4em;
+    color: $brand-color;
+    border-bottom: $underlines;
+    border-bottom-width:2px;
+}
+
+.page-subheading {
+    font-size: 2em;
+    color: #AAA;
+    border-bottom: $underlines;
+}
+
+.login {
+    @include outer-container;
+    margin-bottom: 5em;
+}
+
+#login-header {
+    @include outer-container;
+    margin-bottom:0;
+    margin-top:5em;
+    border:none;
+}
+
+.login-title {
+
+    @include shift(3);
+    @include span-columns(6);
+    @include media-query($on-palm) {
+        @include span-columns(10);
+        @include shift(1);
+    }
+}
+
+.login-textbox {
+    margin:.3em;
+    @include shift(3);
+    @include span-columns(6);
+    @include pad(.4em);
+    border:none;
+    background:#EEE;
+    border-radius:0;
+    @include media-query($on-palm) {
+        @include span-columns(10);
+        @include shift(1);
+    }
+}
+
+.login-submit {
+    @include shift(3);
+    @include span-columns(3);
+    background:$brand-color;
+    color:white;
+    border:none;
+    font-size: 1.8em;
+    padding-top:.1em;
+    padding-bottom:.1em;
+    text-transform: uppercase;
+    margin-top:1em;
+    &:hover {
+        background:darken($brand-color, 5%);
+    }
+    @include media-query($on-palm) {
+        @include span-columns(6);
+        @include shift(1);
+    }
 }
 
 .post-list {
@@ -196,13 +266,22 @@ body
 .post-meta {
     font-size: $small-font-size;
     color: $grey-color;
+    float:right;
 }
 
 .post-link {
     display: block;
-    font-size: 24px;
+    font-size: 2.5em;
+    line-height: 1em;
+    padding-top: .2em;
 }
 
+.post-location {
+    color:#AAA;
+    font-size: 2em;
+    line-height: .1em;
+    padding-left:.2em;
+}
 
 
 /**
@@ -210,11 +289,15 @@ body
  */
 .post-header {
     margin-bottom: $spacing-unit;
+    text-transform: uppercase;
+    color:$brand-color;
+    border-bottom:$underlines;
+    border-bottom-width: 2px;
 }
 
 .post-title {
-    font-size: 42px;
-    letter-spacing: -1px;
+    font-size: 3em;
+    letter-spacing: 1px;
     line-height: 1;
 
     @include media-query($on-laptop) {

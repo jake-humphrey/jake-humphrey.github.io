@@ -6,14 +6,29 @@
   <body>
 
     {% include header.html %}
-    {% if page.title == "home" %}
+    {% if page.title %}
+    {% else %}
+    <div class="banner-container">
     <div class="header-wrapper">
     <div class="home-banner"></div>
+    </div>
     </div>
     {% endif %}
     <div class="page-content">
       <div class="wrapper">
+        {% if page.title != "Login" %}
         {{ content }}
+        {% include listings.html %}
+        {% else %}
+          <header class="post-header" id="login-header">
+            <h1 class="post-title login-title">EMG Login</h1>
+          </header>
+          <form class="login" method="post">
+            <input class="login-textbox" type="textbox" name="username" placeholder="Username..."></input>
+            <input class="login-textbox" type="password" name="password" placeholder="Password..."></input>
+            <input class="login-submit" type="submit" value="Login" name="login"></input>
+          </form>
+        {% endif %}
       </div>
     </div>
 

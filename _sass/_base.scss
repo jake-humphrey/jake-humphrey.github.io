@@ -21,6 +21,7 @@ body {
     color: $text-color;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
+    min-width:$minWidth;
 }
 
 
@@ -93,7 +94,7 @@ a {
     text-decoration: none;
 
     &:visited {
-        color: darken($brand-color, 15%);
+        color: darken($brand-color, 10%);
     }
 
     &:hover {
@@ -102,6 +103,11 @@ a {
     }
 }
 
+footer a {
+    &:hover {
+        color:white;
+    }
+}
 
 
 /**
