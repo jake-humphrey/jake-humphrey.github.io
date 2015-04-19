@@ -6,7 +6,11 @@
   <body>
 
     {% include header.html %}
-
+    {% if page.title == "home" %}
+    <div class="header-wrapper">
+    <div class="home-banner"></div>
+    </div>
+    {% endif %}
     <div class="page-content">
       <div class="wrapper">
         {{ content }}
