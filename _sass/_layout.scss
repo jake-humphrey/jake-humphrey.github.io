@@ -139,6 +139,9 @@
     padding-top:2.5em;
     text-align: center;
     font-size: 1.3em;
+    @include media-query($on-palm) {
+        font-size: 1em;
+    }
 }
 
 @include media-query($on-laptop) {
