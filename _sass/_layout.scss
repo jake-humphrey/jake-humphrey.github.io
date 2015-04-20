@@ -339,6 +339,16 @@
                 color:#AAA;
             }
         }
+
+        @include media-query($on-palm) {
+            .agent-col-1 {
+                display: none;
+            }
+            .agent-col-2 {
+                @include span-columns(10);
+                @include shift(1);
+            }
+        }
     }
 }
 
