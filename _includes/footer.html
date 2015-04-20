@@ -36,9 +36,12 @@
       </div>
     </div>
     <div class="footer-nav-links">
+      <a class="footer-nav-link" href="/">Home</a>
   {% for page in site.pages %}
     {% if page.title %}
+    {% if page.title != "Login" %}
       <a class="footer-nav-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+    {% endif %}
     {% endif %}
   {% endfor %}
   </div>

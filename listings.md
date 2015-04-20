@@ -1,11 +1,19 @@
 ---
-layout: page
+layout: default
 title: Listings
 permalink: /listings/
+searchword: Minneapolis
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+<div class="post">
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+  <header class="post-header">
+    <h1 class="post-title">Search Listings</h1>
+  </header>
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+  <form class="listing-search">
+  <input class="listing-textbox textbox" type="textbox" name="ListingSearch" placeholder="Search..."></input>
+  <input class="blue-button listing-submit" type="submit" name="Search" value="Search"></input>
+  </form>
+
+</div>

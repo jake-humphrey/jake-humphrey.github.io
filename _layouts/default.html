@@ -14,24 +14,31 @@
     </div>
     </div>
     {% endif %}
+    {% if page.listing %}
+    <iframe class="listing-page" background="transparent" src="http://www.crelisting.net/LT890Jc9w"></iframe>
+    {% else %}
     <div class="page-content">
       <div class="wrapper">
         {% if page.title != "Login" %}
         {{ content }}
+        {% if page.title == "Listings" %}
+        {% include listings.html param=0 %}
+        {% else %}
         {% include listings.html %}
+        {% endif %}
         {% else %}
           <header class="post-header" id="login-header">
             <h1 class="post-title login-title">EMG Login</h1>
           </header>
           <form class="login" method="post">
-            <input class="login-textbox" type="textbox" name="username" placeholder="Username..."></input>
-            <input class="login-textbox" type="password" name="password" placeholder="Password..."></input>
-            <input class="login-submit" type="submit" value="Login" name="login"></input>
+            <input class="login-textbox textbox" type="textbox" name="username" placeholder="Username..."></input>
+            <input class="login-textbox textbox" type="password" name="password" placeholder="Password..."></input>
+            <input class="login-submit blue-button" type="submit" value="Login" name="login"></input>
           </form>
         {% endif %}
       </div>
     </div>
-
+    {% endif %}
     {% include footer.html %}
 
   </body>

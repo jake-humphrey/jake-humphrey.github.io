@@ -1,6 +1,6 @@
-<h2 class="page-subheading">Listings</h2>
+<h2 class="page-subheading">Listings{% if include.param %}<span class="page-addition"> • {{ page.searchword }}</span>{% endif %}</h2>
   <ul class="post-list">
-    {% for post in site.categories.listings %}
+    {% for post in site.categories.listings limit 4%}
       <li>
         
 
